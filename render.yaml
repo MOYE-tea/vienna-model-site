@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: vienna-model-site
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: ICLOUD_APPLE_ID
+        sync: false
+      - key: ICLOUD_APP_PASSWORD
+        sync: false
+      - key: ICLOUD_CALENDAR_NAME
+        sync: false
+    # Free plan has no persistent disk: server/data (SQLite) and server/uploads
+    # reset on every redeploy/restart. Add a `disk:` block here (and switch plan
+    # to at least "starter") once this needs to keep real data.

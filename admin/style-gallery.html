@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>風格參考管理｜Vienna Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,500&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar__brand">
+      <div class="admin-sidebar__brand-name">Vienna.</div>
+      <div class="admin-sidebar__brand-sub">ADMIN</div>
+    </div>
+    <nav class="admin-sidebar__nav">
+      <a class="admin-sidebar__link" href="index.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a class="admin-sidebar__link" href="bookings.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        邀約管理
+        <span class="admin-sidebar__badge" id="sidebar-pending-badge" style="display:none;"></span>
+      </a>
+      <a class="admin-sidebar__link" href="calendar.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        月曆管理
+      </a>
+      <a class="admin-sidebar__link" href="wardrobe.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h4l2 3 2-3h4l2 4-3 2v11H7V10L4 8z"/></svg>
+        衣櫃管理
+      </a>
+      <a class="admin-sidebar__link" href="portfolio.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
+        作品集管理
+      </a>
+      <a class="admin-sidebar__link is-active" href="style-gallery.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 15 0 010 18M12 3a9 15 0 000 18"/></svg>
+        風格參考管理
+      </a>
+      <a class="admin-sidebar__link" href="photographers.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M9 7l1.5-3h3L15 7"/></svg>
+        攝影師紀錄
+      </a>
+      <a class="admin-sidebar__link" href="settings.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1 1.55V21a2 2 0 01-4 0v-.09a1.7 1.7 0 00-1-1.55 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.55-1H3a2 2 0 010-4h.09a1.7 1.7 0 001.55-1 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H9a1.7 1.7 0 001-1.55V3a2 2 0 014 0v.09a1.7 1.7 0 001 1.55 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V9a1.7 1.7 0 001.55 1H21a2 2 0 010 4h-.09a1.7 1.7 0 00-1.55 1z"/></svg>
+        價格與規則
+      </a>
+    </nav>
+    <div class="admin-sidebar__footer">
+      <a class="admin-sidebar__view-site" href="/" target="_blank">查看前台網站 ↗</a>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div><h1>風格參考管理</h1><div class="admin-topbar__meta">讓攝影師直接選想拍的風格</div></div>
+      <button class="btn" id="new-item-btn">+ 新增風格</button>
+    </div>
+
+    <div class="admin-content">
+      <div class="item-grid" id="style-grid"></div>
+      <div class="table-empty" id="style-empty" style="display:none;">還沒有任何風格參考，點右上角新增</div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="item-modal">
+  <div class="modal">
+    <div class="modal__head"><h2>新增風格</h2><button class="modal__close" id="modal-close">✕</button></div>
+    <form id="item-form">
+      <div class="field"><label>照片</label><input type="file" name="image" accept="image/*" required></div>
+      <div class="field-row">
+        <div class="field"><label>風格名稱</label><input name="style_name" placeholder="Natural" required></div>
+        <div class="field"><label>說明</label><input name="description" placeholder="自然清新"></div>
+      </div>
+      <button type="submit" class="btn" style="width:100%; justify-content:center;">上傳</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/style-gallery.js"></script>
+</body>
+</html>
